@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
 			deal_num = deal_num / 100;
 			deal_amount = deal_amount / 10000;
 				
-			printf("%-17s|%-13.2f|%-13.2f|%-13.2f|%-13.2f|%-16.2f|%-16.2f|%-16d|%-15.2f|\n", data[0], current_price, rate, yesterday_price, init_price, top_price, end_price, deal_num, deal_amount);
+			printf("%-17s|%-13.2f|%-13.2f|%-13.2f|%-13.2f|%-16.2f|%-16.2f|%-16d|%-14.2f|\n", data[0], current_price, rate, yesterday_price, init_price, top_price, end_price, deal_num, deal_amount);
 		}
 	}
 	return 0;
