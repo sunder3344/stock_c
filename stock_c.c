@@ -88,7 +88,9 @@ int main(int argc, char *argv[]) {
 			deal_amount = deal_amount / 10000;
 				
 			printf("%-17s|%-13.2f|%-13.2f|%-13.2f|%-13.2f|%-16.2f|%-16.2f|%-16d|%-14.2f|\n", data[0], current_price, rate, yesterday_price, init_price, top_price, end_price, deal_num, deal_amount);
+			free(stockcode);
 		}
 	}
+	fclose(fp);
 	return 0;
 }
