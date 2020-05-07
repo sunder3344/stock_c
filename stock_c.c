@@ -79,15 +79,21 @@ int main(int argc, char *argv[]) {
 			double current_price = atof(data[3]);
 			double top_price = atof(data[4]);
 			double end_price = atof(data[5]);
-			int deal_num = atoi(data[8]);
+			long deal_num = atol(data[8]);
 			double deal_amount = atof(data[9]);
 
 			double surplus = current_price - yesterday_price;
 			double rate = surplus * 100 / yesterday_price;
 			deal_num = deal_num / 100;
 			deal_amount = deal_amount / 10000;
-				
-			printf("%-17s|%-13.2f|%-13.2f|%-13.2f|%-13.2f|%-16.2f|%-16.2f|%-16d|%-14.2f|\n", data[0], current_price, rate, yesterday_price, init_price, top_price, end_price, deal_num, deal_amount);
+			
+			if (strlen(data[0]) == 12) {	
+				printf("%-17s|%-13.2f|%-13.2f|%-13.2f|%-13.2f|%-16.2f|%-16.2f|%-16d|%-14.2f|\n", data[0], 
+							current_price, rate, yesterday_price, init_price, top_price, end_price, deal_num, deal_amount);
+			} else {
+				printf("%-16s|%-13.2f|%-13.2f|%-13.2f|%-13.2f|%-16.2f|%-16.2f|%-16d|%-14.2f|\n", data[0],
+							current_price, rate, yesterday_price, init_price, top_price, end_price, deal_num, deal_amount);
+			}
 			free(stockcode);
 		}
 	}
