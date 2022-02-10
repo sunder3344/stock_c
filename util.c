@@ -70,8 +70,14 @@ void explode(char str[], char seperator, char *data[]) {
 		if (str[i] == seperator) {
 			str[i] = '\0';
 			char * temp;
-			temp = (char *)malloc(sizeof(char) * (i - pre_flag));
+			temp = (char *)malloc(sizeof(char) * (i - pre_flag + 1));
+            /*if (i - pre_flag > 0) {
+                temp = (char *)realloc(temp, sizeof(char) * (i - pre_flag + 1));
+            } else {
+                temp = (char *)realloc(temp, sizeof(char) * 1);
+            }*/
 			strncpy(temp, str + pre_flag, i - pre_flag + 1);
+            char *p = temp;
 			//printf("temp = %s\n", temp);
 			data[count] = temp;
 			pre_flag = i + 1;
