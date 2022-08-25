@@ -35,13 +35,13 @@ int main(int argc, char *argv[]) {
 			
 			CURL * curl = curl_easy_init();
 			CURLcode code;
-			char url[100] = "http://hq.sinajs.cn/list=";
+			char url[100] = "https://hq.sinajs.cn/list=";
 			strncat(url, stockcode, len - 1);
 
 			char * flag = "\"";
 			int pos;
 			struct curl_slist * head = NULL;
-			head = curl_slist_append(head, "Content-Type:application/x-www-form-urlencoded;charset=UTF-8");
+			head = curl_slist_append(head, "Referer:https://finance.sina.com.cn");
 
 			curl_easy_setopt(curl, CURLOPT_URL, url);
 			curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3);
